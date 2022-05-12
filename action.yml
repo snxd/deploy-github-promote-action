@@ -1,0 +1,55 @@
+name: Solsta Promote Action
+description: Promote a release
+inputs:
+  client_id:
+    description: Client ID to authenticate usage of Solid State Networks console tools
+    required: true
+    default: ""
+  client_secret:
+    description: Secret Key to authenticate usage of Solid State Networks console tools
+    required: true
+    default: ""
+  console_version:
+    description: Version of Solsta Console Tools to use
+    required: true
+    default: "6.1.1.12"
+  source_product:
+    description: Source product to promote from (case-sensitive)
+    required: false
+  source_environment:
+    description: Source environment to promote from (case-sensitive)
+    required: false
+  source_repository:
+    description: Source repository to promote from (case-sensitive)
+    required: false
+  target_product:
+    description: Target product to promote to (case-sensitive)
+    required: true
+  target_environment:
+    description: Target environment to promote to(case-sensitive)
+    required: false
+  target_repository:
+    description: Target repository to promote to (case-sensitive)
+    required: false
+
+outputs:
+  result:
+    description: The state of the action, if processes completed successfully
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.client_id }}
+    - ${{ inputs.client_secret }}
+    - ${{ inputs.console_version }}
+    - ${{ inputs.console_path }}
+    - ${{ inputs.target_product }}
+    - ${{ inputs.target_environment }}
+    - ${{ inputs.target_repository }}
+    - ${{ inputs.source_product }}
+    - ${{ inputs.source_environment }}
+    - ${{ inputs.source_repository }}
+branding:
+  icon: "download-cloud"
+  color: "yellow"
