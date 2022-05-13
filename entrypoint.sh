@@ -55,13 +55,9 @@ git clone --branch 3.7 https://gitlab.com/snxd/deploy.git solsta_work
 # Generate console credential file from env vars
 echo "{\"consoleCredentials\":{\"audience\":\"https://axis.snxd.com/\",\"clientId\":\"$SNXD_CLIENT_ID\",\"clientSecret\":\"$SNXD_CLIENT_SECRET\",\"grant\":\"clientCredentials\"}}"  > solsta_work/client_credentials.json
 cd solsta_work
-# Create the python venv in the deploy directory
-if [ ! -f "venv" ]; then python3 -m venv venv ; fi
-# Activate the new python environment
-source venv/bin/activate
 # Install any missing deploy script dependencies
 pip install -r requirements.txt
 # Download the latest SSN Console Tools if necessary
-if [ ! -d "solsta_console" ]; then python direct_get.py --overwrite --version=$INPUT_CONSOLE_VERSION --target_directory=solsta_console --console_credentials=client_credentials.json ; fi
+if [ ! -d "solsta_console" ]; then python direct_get.py --overwrite --version="$INPUT_CONSOLE_VERSION" --target_directory=solsta_console --console_credentials=client_credentials.json ; fi
 # Run the script that creates a new release and deploys it
-python manifest_promote.py --debug --console_credentials=client_credentials.json --console_directory=solsta_console --product_name=$INPUT_TARGET_PRODUCT --env_name=$INPUT_TARGET_ENVIRONMENT --repository_name=$INPUT_TARGET_REPOSITORY --process_default=API --source_product_name=$INPUT_SOURCE_PRODUCT --source_env_name=$INPUT_SOURCE_ENVIRONMENT --source_repository_name=$INPUT_SOURCE_REPOSITORY 
+python manifest_promote.py --debug --console_credentials=client_credentials.json --console_directory=solsta_console --product_name="$INPUT_TARGET_PRODUCT" --env_name="$INPUT_TARGET_ENVIRONMENT" --repository_name="$INPUT_TARGET_REPOSITORY" --process_default=API --source_product_name="$INPUT_SOURCE_PRODUCT" --source_env_name="$INPUT_SOURCE_ENVIRONMENT" --source_repository_name="$INPUT_SOURCE_REPOSITORY" 
