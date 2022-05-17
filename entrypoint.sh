@@ -6,8 +6,8 @@ if [[ -z "$INPUT_CONSOLE_VERSION" ]]; then
   exit 1
 fi
 
-if [[ -z "$INPUT_CONSOLE_PATH" ]]; then
-  echo "Missing CONSOLE PATH in the action"
+if [[ -z "$INPUT_CONSOLE_VERSION" ]]; then
+  echo "Missing CONSOLE VERSION in the action"
   exit 1
 fi
 
