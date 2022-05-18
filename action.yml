@@ -15,22 +15,22 @@ inputs:
     default: "6.1.1.12"
   source_product:
     description: Source product to promote from (case-sensitive)
-    required: false
+    required: true
   source_environment:
     description: Source environment to promote from (case-sensitive)
-    required: false
+    required: true
   source_repository:
     description: Source repository to promote from (case-sensitive)
-    required: false
+    required: true
   target_product:
     description: Target product to promote to (case-sensitive)
     required: true
   target_environment:
     description: Target environment to promote to(case-sensitive)
-    required: false
+    required: true
   target_repository:
     description: Target repository to promote to (case-sensitive)
-    required: false
+    required: true
 
 outputs:
   result:
