@@ -16,7 +16,7 @@ inputs:
   scripts_version:
     description: Version of Solsta Deploy Scripts to use
     required: true
-    default: "3.7.16"
+    default: "3.7.18"
   source_product:
     description: Source product to promote from (case-sensitive)
     required: true
