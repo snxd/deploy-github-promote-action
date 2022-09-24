@@ -24,7 +24,7 @@ Here is an example YAML Fragment in the steps section of a build:
     - name: Promote a Release from Dev to QA
       uses: snxd/deploy-github-promote-action@main
       with:
-        console_version: '6.1.1.12'
+        console_version: '6.1.2.51'
         scripts_version: '3.7.18'
         source_product: 'Emutil'
         source_environment: 'Java'
