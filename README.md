@@ -22,7 +22,7 @@ Here is an example YAML Fragment in the steps section of a build:
 ```yaml
     steps:
     - name: Promote a Release from Dev to QA
-      uses: snxd/deploy-github-promote-action@main
+      uses: snxd/deploy-github-promote-action@v1
       with:
         console_version: '6.1.2.51'
         scripts_version: '3.7.18'
