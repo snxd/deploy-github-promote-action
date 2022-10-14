@@ -41,19 +41,20 @@ outputs:
     description: The state of the action, if processes completed successfully
 
 runs:
-  using: docker
-  image: Dockerfile
-  args:
-    - ${{ inputs.solsta_client_id }}
-    - ${{ inputs.solsta_client_secret }}
-    - ${{ inputs.console_version }}
-    - ${{ inputs.scripts_version }}
-    - ${{ inputs.target_product }}
-    - ${{ inputs.target_environment }}
-    - ${{ inputs.target_repository }}
-    - ${{ inputs.source_product }}
-    - ${{ inputs.source_environment }}
-    - ${{ inputs.source_repository }}
+  using: 'composite'
+  steps:
+  - name: Solsta setup
+    uses: snxd/deploy-github-setup-action@main
+    with:
+      solsta_client_id: ${{ inputs.solsta_client_id }}
+      solsta_client_secret: ${{ inputs.solsta_client_secret }}
+      console_version: ${{ inputs.console_version }}
+      scripts_version: ${{ inputs.scripts_version }}
+  - name: Do Promote
+    shell: bash
+    working-directory: solsta_work
+    run: |
+      venv/bin/python manifest_promote.py --debug --console_credentials=client_credentials.json --console_directory=solsta_console/${{ inputs.console_version }}/console/ --product_name="${{ inputs.target_product }}" --env_name="${{ inputs.target_environment }}" --repository_name="${{ inputs.target_repository }}" --process_default=API --source_product_name="${{ inputs.source_product }}" --source_env_name="${{ inputs.source_environment }}" --source_repository_name="${{ inputs.source_repository }}" 
 branding:
   icon: "download-cloud"
   color: "yellow"
