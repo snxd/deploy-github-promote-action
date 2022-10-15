@@ -50,6 +50,7 @@ runs:
       solsta_client_secret: ${{ inputs.solsta_client_secret }}
       console_version: ${{ inputs.console_version }}
       scripts_version: ${{ inputs.scripts_version }}
+
   - name: Do Promote
     shell: bash
     working-directory: solsta_work
