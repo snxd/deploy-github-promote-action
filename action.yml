@@ -55,7 +55,7 @@ runs:
     shell: bash
     working-directory: solsta_work
     run: |
-      venv/bin/python manifest_promote.py --debug --console_credentials=client_credentials.json --console_directory=solsta_console/${{ inputs.console_version }}/console/ --product_name="${{ inputs.target_product }}" --env_name="${{ inputs.target_environment }}" --repository_name="${{ inputs.target_repository }}" --process_default=API --source_product_name="${{ inputs.source_product }}" --source_env_name="${{ inputs.source_environment }}" --source_repository_name="${{ inputs.source_repository }}" 
+      python manifest_promote.py --debug --console_credentials=client_credentials.json --console_directory=solsta_console/${{ inputs.console_version }}/console/ --product_name="${{ inputs.target_product }}" --env_name="${{ inputs.target_environment }}" --repository_name="${{ inputs.target_repository }}" --process_default=API --source_product_name="${{ inputs.source_product }}" --source_env_name="${{ inputs.source_environment }}" --source_repository_name="${{ inputs.source_repository }}" 
 branding:
   icon: "download-cloud"
   color: "yellow"
