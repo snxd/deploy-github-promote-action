@@ -1,6 +1,6 @@
-# Solsta Deployments Action for GitHub
+# Solsta Promote Action for GitHub
 
-This project is a GitHub Action that uses Solid State Networks tools and services to deploy assets from a build to a CDN for downloading.  
+This project is a GitHub Action that uses Solid State Networks tools and services to promote a release from one repository to another, or to the head of a single repository.  
 
 The action is compatible with Windows, Linux, and OSX runners.  Windows self-hosted runners require git-bash (https://git-scm.com/) in the %PATH%.
 
@@ -26,8 +26,8 @@ Here is an example YAML Fragment in the steps section of a build:
     - name: Promote a Release from Dev to QA
       uses: snxd/deploy-github-promote-action@v2
       with:
-        console_version: '6.1.2.51'
-        scripts_version: '3.7.24'
+        console_version: '6.1.2.84'
+        scripts_version: '3.7.30'
         source_product: 'Emutil'
         source_environment: 'Java'
         source_repository: 'Dev'
