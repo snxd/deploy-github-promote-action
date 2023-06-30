@@ -34,8 +34,8 @@ Here is an example YAML Fragment in the steps section of a build:
         target_product: 'Emutil'
         target_environment: 'Java'
         target_repository: 'QA'
-        solsta_client_id:  ${{ secrets.SNXD_CLIENT_ID }}
-        solsta_client_secret:  ${{ secrets.SNXD_CLIENT_SECRET }}
+        solsta_client_id:  ${{ secrets.SOLSTA_CLIENT_ID }}
+        solsta_client_secret:  ${{ secrets.SOLSTA_CLIENT_SECRET }}
 ```
 
 ## License
