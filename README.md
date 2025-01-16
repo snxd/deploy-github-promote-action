@@ -24,10 +24,10 @@ Here is an example YAML Fragment in the steps section of a build:
 ```yaml
     steps:
     - name: Promote a Release from Dev to QA
-      uses: snxd/deploy-github-promote-action@v4
+      uses: snxd/deploy-github-promote-action@v5
       with:
         console_version: '7.2.49'
-        scripts_version: '3.10.0'
+        scripts_version: '3.11.0'
         source_product: 'Emutil'
         source_environment: 'Java'
         source_repository: 'Dev'
